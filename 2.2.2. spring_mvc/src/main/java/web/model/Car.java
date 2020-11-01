@@ -15,4 +15,13 @@ public class Car {
                 + "maxSpeed:"+ maxSpeed + "\n"
                 + "price: "+ price + "\n";
     }
+    public String getModel(){
+        return model;
+    }
+    public int getMaxSpeed(){
+        return maxSpeed;
+    }
+    public long getPrice() {
+        return price;
+    }
 }

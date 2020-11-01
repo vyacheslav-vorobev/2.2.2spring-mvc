@@ -5,10 +5,24 @@
     <meta charset="UTF-8">
     <title>cars</title>
 </head>
-<body>
-<th:block th:each="msg : ${messages}">
-    <h1 th:text="${msg}"></h1>
-</th:block>
+<table>
+    <thead>
+    <tr>
+        <th> Model </th>
+        <th> MaxSpeed </th>
+        <th> Price </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${messages.empty}">
+        <td colspan="2"> No Books Available </td>
+    </tr>
+    <tr th:each="mes : ${messages}">
+        <td><span th:text="${mes.getModel()}"></span></td>
+        <td><span th:text="${mes.getMaxSpeed()}"></span></td>
+        <td><span th:text="${mes.getPrice()}"></span></td>
+    </tr>
+    </tbody>
+</table>
 </div>
-</body>
 </html>

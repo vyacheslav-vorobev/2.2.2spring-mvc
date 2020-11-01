@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import web.model.Car;
 import web.model.CarService;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class CarController {
         } catch (NumberFormatException e){
             System.out.println("Переданный параметр не является числом");
         }
-        List<String> messages = CarService.getCars(number);
+        List<Car> messages = CarService.getCars(number);
         model.addAttribute("messages", messages);
         return "cars";
     }

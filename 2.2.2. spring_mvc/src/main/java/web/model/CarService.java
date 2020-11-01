@@ -16,13 +16,13 @@ public class CarService {
         cars.add(new Car("Toyota Rav4",190,2000000));
     }
 
-    public static List<String> getCars(int number) {
+    public static List<Car> getCars(int number) {
         if(number > 5){
             number = 5;
         }
-        List<String> messages = new ArrayList<>();
+        List<Car> messages = new ArrayList<>();
         for(int i = 0; i<number; i++){
-            messages.add(cars.get(i).toString());
+            messages.add(cars.get(i));
         }
         return messages;
     }
