@@ -11,15 +11,14 @@ import java.util.List;
 @Controller
 public class CarController {
     @GetMapping(value = "/cars")
-    public String printWelcome(@RequestParam(value = "count", required = false) String value, ModelMap model) {
-        int number = 5;
-        try {
-            number = Integer.parseInt(value);
-        } catch (NumberFormatException e){
-            System.out.println("Переданный параметр не является числом");
+    public String printWelcome(@RequestParam(value = "count", required = false) Integer value, ModelMap model) {
+        if(value==null || value>5){
+            model.addAttribute("messages", CarService.getCars(5));
         }
-        List<Car> messages = CarService.getCars(number);
-        model.addAttribute("messages", messages);
+        else {
+            List<Car> messages = CarService.getCars(value);
+            model.addAttribute("messages", messages);
+        }
         return "cars";
     }
 }

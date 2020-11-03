@@ -17,9 +17,6 @@ public class CarService {
     }
 
     public static List<Car> getCars(int number) {
-        if(number > 5){
-            number = 5;
-        }
         List<Car> messages = new ArrayList<>();
         for(int i = 0; i<number; i++){
             messages.add(cars.get(i));
